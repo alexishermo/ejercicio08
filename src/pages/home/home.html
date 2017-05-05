@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Lista de usuarios
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h1 color="dark" align="center">Usuarios</h1><br>
+    <ion-list>
+        <button ion-item (click)="showMessage()" title="Click para ver opciones">Nombre: Alexis Edad:23</button><br>
+        <button ion-item (click)="showMessage()" title="Click para ver opciones">Nombre: Pepe Edad:20</button><br>
+        <button ion-item (click)="showMessage()" title="Click para ver opciones">Nombre: Jose Edad:12</button><br>
+        <button ion-item (click)="showMessage()" title="Click para ver opciones">Nombre: Maria Edad:23</button><br>
+        <button ion-item (click)="showMessage()" title="Click para ver opciones">Nombre: Reyes Edad:23</button><br>  
+    </ion-list>
+    <ion-fab bottom right>
+        <button ion-fab title="Agregar" (click)="changePage()"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+    
+</ion-content>

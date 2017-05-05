@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Editar
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-label color="dark" >ID: 561561</ion-label>       
+    <ion-input type="text" disabled="true" [(ngModel)]="datos.id" ></ion-input>
+    <form [formGroup]="formulario">
+    <ion-list no-lines>
+         
+         <ion-item>
+            <ion-label color="dark">Nombre:</ion-label>       
+            <ion-input formControlName="nombre" type="text" [(ngModel)]="datos.nombre"></ion-input>
+         </ion-item>
+         <ion-item *ngIf="formulario.get('nombre').errors && formulario.get('nombre').dirty">
+              <p *ngIf="formulario.get('nombre').hasError('required')">Campo "Nombre" requerido</p>
+              <p *ngIf="formulario.get('nombre').hasError('maxlength')">Maximo 50 letras</p>
+         </ion-item>
+
+         <ion-item>
+            <ion-label color="dark">Contrasena:</ion-label>       
+            <ion-input formControlName="contrasena" type="text" [(ngModel)]="datos.contrasena"></ion-input>
+         </ion-item>
+         <ion-item *ngIf="formulario.get('contrasena').errors && formulario.get('contrasena').dirty">
+              <p *ngIf="formulario.get('contrasena').hasError('required')">Campo "Contrasena" requerido</p>
+              <p *ngIf="formulario.get('contrasena').hasError('maxlength')">Maximo 30 letras</p>
+              <p *ngIf="formulario.get('contrasena').hasError('pattern')">Minimo 1 caracter especial despues de una cadena</p>
+         </ion-item>
+
+         <ion-item>
+            <ion-label color="dark">E-mail:</ion-label>       
+            <ion-input formControlName="correo" type="email" [(ngModel)]="datos.correo"></ion-input>
+         </ion-item>
+         <ion-item *ngIf="formulario.get('correo').errors && formulario.get('correo').dirty">
+              <p *ngIf="formulario.get('correo').hasError('required')">Campo "Correo" requerido</p>
+              <p *ngIf="formulario.get('correo').hasError('maxlength')">Maximo 255 letras</p>
+              <p *ngIf="formulario.get('correo').hasError('pattern')">Formato de Email incorrecto</p>
+         </ion-item>
+         
+         <ion-item>
+            <ion-label color="dark">Usuario:</ion-label>       
+            <ion-input formControlName="usuario" type="text" [(ngModel)]="datos.usuario"></ion-input>
+         </ion-item>
+         <ion-item *ngIf="formulario.get('usuario').errors && formulario.get('usuario').dirty">
+              <p *ngIf="formulario.get('usuario').hasError('required')">Campo "Usuario" requerido</p>
+              <p *ngIf="formulario.get('usuario').hasError('maxlength')">Maximo 30 letras</p>
+              <p *ngIf="formulario.get('usuario').hasError('pattern')">Solo minusculas</p>
+         </ion-item>
+
+         <ion-item>
+            <ion-label color="dark">Fecha de nacimiento:</ion-label>
+            <ion-datetime formControlName="fecha" displayFormat="DD/MM/YYYY" [(ngModel)]="datos.fecha"></ion-datetime>
+        </ion-item>
+        <ion-item *ngIf="formulario.get('fecha').errors && formulario.get('fecha').dirty">
+              <p *ngIf="formulario.get('fecha').hasError('required')">Campo "Correo" requerido</p>  
+         </ion-item>
+    </ion-list>
+    </form>
+
+    <button ion-button block (click)="goToHome()" [disabled]="formulario.invalid">Terminar de editar</button>
+</ion-content>
